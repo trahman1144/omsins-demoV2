@@ -27,7 +27,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   color: var(--black);
-  padding-bottom: 60px; /* height of footer */
+  padding-bottom: 57px; /* height of footer */
 }
 
 /* Global Section Heading Styles */
