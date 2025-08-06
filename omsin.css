@@ -509,3 +509,10 @@ footer {
   background: rgba(0, 0, 0, 0.05); /* light hover bg */
   transition: all 0.3s ease;
 }
+/* ===== Contact Section Spacing for Desktop ===== */
+@media (min-width: 1025px) {
+  .contact-section {
+    padding-top: 80px;     /* more space below navbar */
+    padding-bottom: 150px; /* more space below map */
+  }
+}
