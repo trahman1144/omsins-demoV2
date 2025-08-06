@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omsin's Thai Takeaway</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="omsin.css" />
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="navbar">
+    <img src="omsin-logo.png" alt="Omsin's Thai Takeaway" class="nav-logo">
+    <nav class="desktop-nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#our-story" class="nav-link">Our Story</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+  </div>
+</header>
+
+<!-- Mobile Overlay Menu -->
+<div class="mobile-overlay" id="mobile-overlay">
+  <span class="overlay-close" id="overlay-close">&times;</span>
+  <div class="overlay-content">
+    <a href="#home" class="overlay-link">Home</a>
+    <a href="#menu" class="overlay-link">Menu</a>
+    <a href="#our-story" class="overlay-link">Our Story</a>
+    <a href="#gallery" class="overlay-link">Gallery</a>
+    <a href="#contact" class="overlay-link">Contact</a>
+
+    <!-- Social icons inside mobile menu -->
+    <div class="overlay-social">
+      <a href="https://facebook.com/YourPage" target="_blank" aria-label="Facebook">
+        <img src="facebook-icon.svg" alt="Facebook">
+      </a>
+      <a href="https://instagram.com/YourProfile" target="_blank" aria-label="Instagram">
+        <img src="instagram-icon.svg" alt="Instagram">
+      </a>
+      <a href="https://www.google.com/search?q=Your+Business+Name" target="_blank" aria-label="Google Reviews">
+        <img src="google-icon.svg" alt="Google Reviews">
+      </a>
+      <a href="https://tripadvisor.com/YourPage" target="_blank" aria-label="Tripadvisor">
+        <img src="tripadvisor-icon.svg" alt="Tripadvisor">
+      </a>
+    </div>
+
+    <div class="overlay-contact">
+      <p>167B Hatfield Rd, St Albans AL1 4LB</p>
+      <p><a href="tel:01727869200">01727 869 200</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="slideshow">
+    <div class="slide" style="background-image: url('hero1.jpg');"></div>
+    <div class="slide" style="background-image: url('hero2.jpg');"></div>
+    <div class="slide" style="background-image: url('hero3.jpg');"></div>
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-overlay" data-animate="fade-up">
+    <div class="hero-logo-container">
+      <img src="omsin-logo.png" alt="Omsin's Logo" class="hero-logo">
+      <img src="halal-logo.png" alt="Halal Certified" class="halal-logo">
+    </div>
+    <h1>Authentic Thai Cuisine, Fresh Every Day</h1>
+    <button class="order-btn">Order Now</button>
+  </div>
+</section>
+
+<!-- Menu Section -->
+<section id="menu" class="menu-preview" data-animate="fade-up">
+  <h2>Popular Dishes</h2>
+  <div class="menu-items">
+    <div class="menu-card">
+      <img src="dish1.jpg" alt="Pad Thai">
+      <h3>Pad Thai</h3>
+      <p>Classic stir-fried noodles</p>
+    </div>
+    <div class="menu-card">
+      <img src="dish2.jpg" alt="Green Curry">
+      <h3>Green Curry</h3>
+      <p>Spicy coconut curry</p>
+    </div>
+    <div class="menu-card">
+      <img src="dish3.jpg" alt="Spring Rolls">
+      <h3>Spring Rolls</h3>
+      <p>Crispy vegetable rolls</p>
+    </div>
+  </div>
+</section>
+
+<!-- Our Story Section -->
+<section id="our-story" class="our-story" data-animate="fade-up">
+  <div class="story-content">
+    <div class="story-text">
+      <h2>Our Story</h2>
+      <p>At Omsin's Thai Takeaway, we bring you the authentic taste of Thailand right here in St Albans.</p>
+      <p>Whether you're craving a comforting bowl of green curry or the vibrant taste of Pad Thai, we prepare each dish with passion.</p>
+    </div>
+    <div class="story-image">
+      <img src="our-story.jpg" alt="Cooking at Omsin's Thai Takeaway">
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="gallery-section" data-animate="fade-up">
+  <h2>Gallery</h2>
+  <div class="gallery-wrapper">
+    <button class="gallery-nav prev">&#10094;</button>
+    <div class="gallery-carousel">
+      <div class="gallery-slide"><img src="gallery1.jpg" alt="Gallery 1"></div>
+      <div class="gallery-slide"><img src="gallery2.jpg" alt="Gallery 2"></div>
+      <div class="gallery-slide"><img src="gallery3.jpg" alt="Gallery 3"></div>
+    </div>
+    <button class="gallery-nav next">&#10095;</button>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section" data-animate="fade-up">
+  <h2>Contact & Location</h2>
+  <div class="contact-flex">
+    <div class="contact-info">
+      <p><strong>Address:</strong> 167B Hatfield Rd, St Albans AL1 4LB</p>
+      <p><strong>Phone:</strong> <a href="tel:01727869200">01727 869 200</a></p>
+    </div>
+    <iframe class="map-frame" src="https://www.google.com/maps?q=167B+Hatfield+Rd,+St+Albans+AL1+4LB&output=embed"></iframe>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Omsin's Thai Takeaway. Website by RefinedSites.
+</footer>
+
+<!-- Fixed Bottom Bar -->
+<div class="fixed-footer">
+  <a href="tel:01727869200" class="footer-btn call-btn">📞 Call Us</a>
+  <a href="#menu" class="footer-btn order-btn-footer">🛒 Order Now</a>
+</div>
+
+<!-- Floating Social Bar for Desktop -->
+<div class="floating-social">
+  <a href="https://facebook.com/YourPage" target="_blank" aria-label="Facebook">
+    <img src="facebook-icon.svg" alt="Facebook">
+  </a>
+  <a href="https://instagram.com/YourProfile" target="_blank" aria-label="Instagram">
+    <img src="instagram-icon.svg" alt="Instagram">
+  </a>
+  <a href="https://www.google.com/search?q=Your+Business+Name" target="_blank" aria-label="Google Reviews">
+    <img src="google-icon.svg" alt="Google Reviews">
+  </a>
+  <a href="https://tripadvisor.com/YourPage" target="_blank" aria-label="Tripadvisor">
+    <img src="tripadvisor-icon.svg" alt="Tripadvisor">
+  </a>
+</div>
+
+<script src="omsin.js"></script>
+</body>
+</html>

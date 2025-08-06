@@ -1,0 +1,511 @@
+:root {
+  --red: #e53935;
+  --black: #000;
+  --white: #fff;
+  --cream: #faf7f2;
+  --gold: #d4af37;
+}
+
+/* Remove horizontal scroll completely */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  background: var(--cream);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--black);
+  padding-bottom: 60px; /* height of footer */
+}
+
+/* Global Section Heading Styles */
+section h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* was 700 */
+  font-size: 2rem;
+  letter-spacing: 0.5px; /* slight spacing for elegance */
+  color: var(--red);
+  margin-bottom: 30px;
+}
+
+
+/* ===== Navbar ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent; /* transparent at top */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+header.scrolled {
+  background: rgba(0, 0, 0, 0.85); /* on scroll */
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5vw;
+}
+.nav-logo { height: 70px; }
+.desktop-nav { display: flex; gap: 20px; }
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { width: 100%; }
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* ===== Mobile Overlay Menu ===== */
+.mobile-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 0;
+  background: rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  z-index: 2000;
+  opacity: 0;
+  transition: height 0.4s ease, opacity 0.4s ease;
+}
+.mobile-overlay.open { height: 100%; opacity: 1; }
+.overlay-close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 2.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 80px;
+}
+.overlay-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: all 0.4s ease;
+}
+.mobile-overlay.open .overlay-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+.overlay-link:hover { color: var(--red); }
+.overlay-contact {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: all 0.4s ease;
+  transition-delay: 0.5s;
+}
+.mobile-overlay.open .overlay-contact {
+  opacity: 1;
+  transform: translateY(0);
+}
+.overlay-contact a { color: var(--white); }
+.overlay-contact a:hover { color: var(--red); }
+
+/* ===== Hero ===== */
+.hero { position: relative; height: 90vh; overflow: hidden; }
+.slideshow, .slide {
+  height: 100%; width: 100%; position: absolute; top: 0; left: 0;
+}
+.slide {
+  background-size: cover;
+  background-position: center;
+  animation: fadeZoom 15s infinite;
+  opacity: 0;
+}
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 5s; }
+.slide:nth-child(3) { animation-delay: 10s; }
+@keyframes fadeZoom {
+  0% { opacity: 0; transform: scale(1); }
+  8%, 33% { opacity: 1; transform: scale(1.05); }
+  41%, 100% { opacity: 0; transform: scale(1); }
+}
+.hero-gradient {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+}
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--red);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-logo-container {
+  display: flex; justify-content: center; align-items: center; gap: 15px;
+}
+.hero-logo { height: 140px; }
+.halal-logo { height: 50px; }
+.hero-overlay h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin: 20px 0 30px;
+}
+.order-btn {
+  padding: 12px 30px;
+  border: 2px solid var(--red);
+  background: transparent;
+  color: var(--red);
+  font-weight: bold;
+}
+.order-btn:hover { background: var(--red); color: var(--white); }
+
+/* Responsive Hero Heading */
+@media (max-width: 480px) {
+  .hero-overlay h1 { font-size: 1.8rem; }
+}
+
+/* ===== Our Story ===== */
+.our-story {
+  padding: 60px 5vw 40px;
+}
+.story-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.story-text {
+  flex: 1 1 400px;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--red);
+  text-align: center;
+}
+.story-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+.story-image { flex: 1 1 400px; }
+.story-image img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ===== Menu Cards ===== */
+.menu-preview { padding: 40px 5vw 60px; }
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+.menu-card {
+  border: 1px solid var(--gold);
+  padding: 15px;
+  width: 220px;
+  background: var(--white);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.menu-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.menu-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--red);
+  margin: 10px 0 5px;
+}
+
+/* ===== Gallery Carousel ===== */
+.gallery-section {
+  max-width: 1200px; /* matches Our Story max width */
+  margin: 0 auto; /* center horizontally */
+  padding: 0 5vw; /* same side padding as other sections */
+}
+.gallery-wrapper { position: relative; }
+.gallery-carousel {
+  display: flex;
+  overflow: hidden; /* hide overflow for single image */
+  scroll-snap-type: x mandatory;
+  gap: 15px;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.gallery-slide {
+  flex: 0 0 100%; /* always 1 per view */
+  scroll-snap-align: center;
+}
+.gallery-slide img {
+  width: 100%;
+  height: 400px; /* increased height */
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+.gallery-nav:hover { opacity: 1; }
+.gallery-nav.prev { left: 5px; }
+.gallery-nav.next { right: 5px; }
+
+/* ===== Contact ===== */
+.contact-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.map-frame {
+  border: none;
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ===== Scroll Animations ===== */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+[data-animate].animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .menu-toggle { display: block; }
+  .menu-items { flex-direction: column; align-items: center; }
+  .menu-card { width: 90%; max-width: 300px; }
+}
+
+@media (max-width: 768px) {
+  .hero-logo-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* smaller gap so both fit */
+  }
+  .halal-logo {
+    margin-left: 0; /* remove any horizontal offset */
+    height: 45px; /* slightly smaller to fit fully */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-logo { height: 110px; }
+}
+
+/* ===== Fixed Footer Bar ===== */
+.fixed-footer {
+  position: fixed;
+  bottom: -70px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  z-index: 9999;
+  background: var(--black);
+  border-top: 3px solid var(--red);
+  animation: slideUpFooter 0.5s ease-out forwards;
+  animation-delay: 0.3s;
+}
+.footer-btn {
+  flex: 1;
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.3s ease;
+}
+.call-btn { border-right: 1px solid var(--red); }
+.footer-btn:hover {
+  background: var(--red);
+  color: var(--white);
+}
+@keyframes slideUpFooter {
+  from { bottom: -70px; opacity: 0; }
+  to { bottom: 0; opacity: 1; }
+}
+/* ===== Mobile Menu Social Icons ===== */
+.overlay-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.overlay-social a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: var(--red); /* brand red */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overlay-social a:hover {
+  transform: scale(1.1);
+  background: var(--gold); /* brand gold on hover */
+}
+
+.overlay-social img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Floating Social Bar (Desktop) ===== */
+.floating-social {
+  position: fixed;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 99999;
+}
+
+.floating-social a {
+  display: block;
+  width: 45px;
+  height: 45px;
+  background: var(--red); /* brand red */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.floating-social a:hover {
+  transform: scale(1.1);
+  background: var(--gold); /* brand gold on hover */
+}
+
+.floating-social img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide desktop floating bar on mobile */
+@media (max-width: 768px) {
+  .floating-social {
+    display: none;
+  }
+}
+/* === Social Icons Styling === */
+
+/* Floating bar (desktop) */
+.floating-social a,
+.overlay-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; /* perfect circle */
+  background: transparent; /* no fill */
+  overflow: hidden;
+  box-shadow: none; /* remove extra shadow if desired */
+  border: none; /* remove border */
+}
+
+.floating-social img,
+.overlay-social img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps original logo shape */
+  border: none !important; /* no border at all */
+  background: transparent;
+}
+
+/* Hover effect: subtle scale up */
+.floating-social a:hover,
+.overlay-social a:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.05); /* light hover bg */
+  transition: all 0.3s ease;
+}
